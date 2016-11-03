@@ -5,40 +5,28 @@ using System.Text;
 
 namespace CardBattle.Models
 {
-    public enum Suit
+    public class Card
     {
-        Clubs,
-        Diamonds,
-        Hearts,
-        Spades
-    }
-
-
-    public enum Value
-    {
-        Seven,
-        Eight,
-        Nine,
-        Ten,
-        Jacks,
-        Queen,
-        King,
-        Ace
-    }
-    class Card
-    {
-        public Card(Value values, Suit suit)
+        public Card(Values value, Suit suit)
         {
-            Suit = suit;
-            Values = values;
+            _suit = suit;
+            Value = value;
         }
-        public Suit Suit { get; set; }
-        public Value Values { get; set; }
+
+        private readonly Suit _suit;
+        public Suit Suit
+        {
+            get
+            {
+                return _suit;
+            }
+        }
+
+        public Values Value { get; private set; }
 
         public override string ToString()
         {
-
-            return Suit.ToString() + Values.ToString();
+            return Value + " of " + Suit; ;
         }
     }
 }
